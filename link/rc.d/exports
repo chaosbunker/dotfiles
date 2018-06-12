@@ -1,0 +1,47 @@
+# Make vim the default editor.
+export EDITOR='vim';
+
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
+export GNUPGHOME=$HOME/.gnupg
+
+export HOMEBREW_NO_ANALYTICS=1
+
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTSIZE='32768';
+export HISTFILESIZE="${HISTSIZE}";
+# Omit duplicates and commands that begin with a space from history.
+export HISTCONTROL='ignoreboth';
+
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}";
+export LESS_TERMCAP_mb="${green}";
+
+# Less Colors for Man Pages
+# export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
+# export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
+# export LESS_TERMCAP_me=$'\e[0m'           # end mode
+# export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
+# export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
+# export LESS_TERMCAP_ue=$'\e[0m'           # end underline
+# export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
+
+# Less Colors for Man Pages
+#export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
+#export LESS_TERMCAP_mb=$'${yellow}' # begin blinking
+#export LESS_TERMCAP_md=$'\E[01;38;5;74m' # begin bold
+export LESS_TERMCAP_me=$'\E[0m' # end mode
+export LESS_TERMCAP_se=$'\e[0m' # end standout-mode
+export LESS_TERMCAP_so=$'\e[0;37;102m' # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\e[0m' # end underline
+export LESS_TERMCAP_us=$'\e[4;32m' # begin underline
+
+# Don’t clear the screen after quitting a manual page.
+export MANPAGER='less -X';
+
