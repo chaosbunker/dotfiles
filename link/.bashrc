@@ -6,12 +6,8 @@ fi
 
 source ~/.bash_prompt
 
-# Load all files from .shell/rc.d directory
-if [ -d $HOME/rc.d ]; then
-  for file in $HOME/rc.d/*; do
-    source $file
-  done
-fi
+# Source global run commands
+source $HOME/.rc
 
 # Append to the Bash history file, rather than overwriting it.
 shopt -s histappend
