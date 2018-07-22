@@ -1,21 +1,5 @@
 #!/bin/bash
 
-# search for string in all files of a directory
-strsearch() {
-	if [[ -z "$1" ]] && [[ -z "$2" ]]; then
-    echo "Search directories for a specific string inside all files"
-    echo ""
-    echo "      Usage:"
-    echo "      Search through current dir: strsearch string"
-    echo "      Specify dir to search: strsearch string /dir/to/search"
-    exit 1;
-elif [[ -n "$1" ]] && [[ -z "$2" ]]; then
-  find "$PWD" -type f -exec grep -l "$1" {} +
-else
-  find $2 -type f -exec grep -l "$1" {} +
-fi
-}
-
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$_";
