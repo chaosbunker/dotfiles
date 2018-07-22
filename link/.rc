@@ -1,7 +1,14 @@
-PATH=~/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin/:/usr/local/opt/bin/:$PATH
+PATH=~/dotfiles/bin:$HOME/.cargo/bin:/usr/local/miniconda3/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin/:/usr/local/opt/bin/:$PATH
+
+# Source all files from rc.d directory
+if [ -d $HOME/rc.d ]; then
+  for file in $HOME/rc.d/*; do
+    source $file
+  done
+fi
+
+[[ -f /usr/local/miniconda3/etc/profile.d/conda.sh ]] \
+  && . /usr/local/miniconda3/etc/profile.d/conda.sh
 
 eval "$(fasd --init auto)"
 
-for file in ~/rc.d/*;do
-	source $file
-done
