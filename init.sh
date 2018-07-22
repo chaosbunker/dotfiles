@@ -28,6 +28,8 @@ for file in $(find $PWD/link ! -name 'link' ! -name '.DS_Store' -maxdepth 1);do
 	ln -sfv $file $HOME
 done
 
+gopass config safecontent true
+
 # switch login shell to zsh
 echo -e "\n\e[1;3m\xe2\x86\x92 Change login shell\e[0m\n"
 chsh -s /usr/local/bin/zsh
